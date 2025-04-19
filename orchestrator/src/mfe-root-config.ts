@@ -17,6 +17,11 @@ const mfeApps: MfeApp[] = [
     activeWhen: (location) => location.pathname.startsWith("/"),
     domElement: "header",
   },
+  {
+    name: "@mfe/user",
+    activeWhen: (location) => location.pathname.startsWith("/"),
+    domElement: "main",
+  },
 ];
 
 for (const { name, activeWhen, domElement } of mfeApps) {

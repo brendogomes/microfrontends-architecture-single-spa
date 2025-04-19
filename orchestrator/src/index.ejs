@@ -9,13 +9,13 @@
     <meta
       http-equiv="Content-Security-Policy"
       content="
-  default-src 'self' https: localhost:*;
-  script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*;
-  connect-src https: localhost:* ws://localhost:* ws://192.168.1.5:8003/;
-  style-src 'unsafe-inline' https: localhost:*;
-  style-src-elem 'unsafe-inline' https: localhost:*;
-  object-src 'none';
-  "
+    default-src 'self' https: localhost:*;
+    script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*;
+    connect-src https: localhost:* ws://localhost:* ws://192.168.1.3:9003/;
+    style-src 'unsafe-inline' https: localhost:*;
+    style-src-elem 'unsafe-inline' https: localhost:*;
+    object-src 'none';
+    "
     />
     <meta name="importmap-type" content="systemjs-importmap" />
     <script
@@ -48,6 +48,8 @@
     <section>
       <header id="header"></header>
     </section>
+
+    <main id="main"></main>
 
     <script>
       System.import("@mfe/root-config");

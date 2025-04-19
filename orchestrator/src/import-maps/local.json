@@ -2,6 +2,7 @@
   "imports": {
     "@mfe/root-config": "//localhost:9000/mfe-root-config.js",
     "@mfe/sidebar": "//localhost:9001/mfe-sidebar.js",
-    "@mfe/header": "//localhost:9002/main.js"
+    "@mfe/header": "//localhost:9002/main.js",
+    "@mfe/user": "//localhost:9003/js/app.js"
   }
 }
