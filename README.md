@@ -7,4 +7,4 @@ Este projeto demonstra uma arquitetura de micro front-ends utilizando o framewor
 - Cada micro-frontend pode ser desenvolvido com diferentes frameworks ou bibliotecas.
 - O single-spa faz a orquestração e integração das aplicações.
 
-Este repositório serve como exemplo prático e ponto de partida para quem deseja conhecer ou implementar microfrontends com single-spa.
+Este repositório serve como exemplo prático e ponto de partida para quem deseja conhecer ou implementar micro front-ends com single-spa.
