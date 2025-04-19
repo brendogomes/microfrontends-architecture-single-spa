@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@mfe/root-config": "//localhost:9000/mfe-root-config.js"
+  }
+}

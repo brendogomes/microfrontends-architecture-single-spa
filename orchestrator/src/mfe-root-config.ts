@@ -1,24 +1,33 @@
-import { registerApplication, start, LifeCycles } from "single-spa";
+import { registerApplication, start } from "single-spa";
 
-registerApplication({
-  name: "@single-spa/welcome",
-  app: () =>
-    import(
-      /* webpackIgnore: true */ // @ts-ignore-next
-      "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
-    ),
-  activeWhen: ["/"],
-});
+interface MfeApp {
+  name: string;
+  activeWhen: (location: Location) => boolean;
+  domElement: string;
+}
 
-// registerApplication({
-//   name: "@mfe/navbar",
-//   app: () =>
-//     import(
-//       /* webpackIgnore: true */ // @ts-ignore-next
-//       "@mfe/navbar"
-//     ),
-//   activeWhen: ["/"],
-// });
+const mfeApps: MfeApp[] = [];
+
+for (const { name, activeWhen, domElement } of mfeApps) {
+  registerApplication(
+    name,
+    async () => {
+      const module = await System.import(name);
+      if (!module.bootstrap || !module.mount || !module.unmount) {
+        throw new Error(
+          `Module for ${name} does not export expected lifecycle functions.`
+        );
+      }
+      return {
+        bootstrap: module.bootstrap,
+        mount: module.mount,
+        unmount: module.unmount,
+      };
+    },
+    activeWhen,
+    { domElement: document.getElementById(domElement) }
+  );
+}
 
 start({
   urlRerouteOnly: true,
