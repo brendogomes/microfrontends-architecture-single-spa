@@ -6,7 +6,18 @@ interface MfeApp {
   domElement: string;
 }
 
-const mfeApps: MfeApp[] = [];
+const mfeApps: MfeApp[] = [
+  {
+    name: "@mfe/sidebar",
+    activeWhen: (location) => location.pathname.startsWith("/"),
+    domElement: "sidebar",
+  },
+  {
+    name: "@mfe/header",
+    activeWhen: (location) => location.pathname.startsWith("/"),
+    domElement: "header",
+  },
+];
 
 for (const { name, activeWhen, domElement } of mfeApps) {
   registerApplication(
